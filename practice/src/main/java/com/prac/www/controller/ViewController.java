@@ -1,4 +1,4 @@
-package com.prac.www.board.controller;
+package com.prac.www.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-public class BoardController {
+public class ViewController {
 	
 	// 메인화면
-	@GetMapping("index")
+	@GetMapping("")
 	public String index(Model model) {
 		return "index";
 	}
@@ -24,6 +24,18 @@ public class BoardController {
 	@GetMapping("login")
 	public String login(Model model) {
 		return "user/login";
+	}
+	
+	//회원가입 페이지
+	@GetMapping("join")
+	public String join(Model mode) {
+		return "user/join";
+	}
+	
+	//가입완료 페이지
+	@GetMapping("joinResult")
+	public String joinResult(Model model) {
+		return "user/joinResult";
 	}
 	
 }

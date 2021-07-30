@@ -25,6 +25,35 @@
      	height: 100%;
      	text-align: center;
 	}
+	
+	.btn{
+		border-top-left-radius: 5px; 
+		border-bottom-left-radius: 5px;
+		border-top-right-radius: 5px; 
+		border-bottom-right-radius: 5px;
+		border: 1px solid skyblue; 
+		background-color: rgba(0,0,0,0); 
+		color: black; 
+		padding: 5px;
+		width:10%;
+		height:10%;
+	}
+	.btn:hover{
+		color:white; 
+		background-color: skyblue;
+	}
+	
+	#wrap{
+     text-align: center;
+     position: relative;
+	}
+	
+	#space{
+		text-align : center;
+		width : 5%;
+		heigh : 5%;
+	}
+	
 </style>
 <script>
 	$(document).ready(function(){
@@ -47,11 +76,11 @@
 
 </script>
 </head>
-<body>
+<body id="wrap">
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
-			<a href="index"><img src="/resources/base/assets/HoonsLogo.png" width="175" height="60"></a>
+			<a href="/"><img src="/resources/base/assets/HoonsLogo.png" width="175" height="60"></a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -61,7 +90,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="shop">의류</a>
@@ -103,31 +132,36 @@
     
 <div class="base">
 	<div>
-		<form  id="form" method = "post" action="/www/loginCheck" >
+		<form  id="form" method = "post" action="loginCheck" >
 			<div class="form-group" style = "margin-top: 15%;">
-				<label for="id">ID &nbsp;&nbsp;&nbsp; </label>
+				<label for="id" id="space">ID &nbsp;&nbsp;&nbsp; </label>
 				<input id="id" type="text" name="id">
 			</div>
-			<div class="form-group">
-				<label for="password">Pass</label>
+			<div class="form-group" style = "margin-top: 2px%;">
+				<label for="password" id="space">Pass</label>
 				<input id="password" type="password" name="password">
 				<span class="helper-text" id="password_msg"></span>
 			</div>
 			<div>
-				<div style="margin-top: 2px;">
-					<button id="userbtn1">로그인</button>
-					<button id="userbtn1" href="join">회원가입</button> 
-				</div>
-				<div style="margin-top: 2px;">
-					<button id="userbtn2" type="button" onclick="location='userfindid'">아이디 찾기</button>
-					<button id="userbtn2" type="button" onclick="location='userfindid'">비밀번호 찾기</button>
+				<div style="margin-top: 5px;">
+					<button id="userbtn1" class="btn">로그인</button>
 				</div>
 			</div>
-		</form>
+			</form>
+			<div>
+				<a href="join"><button id="userjoin" class="btn" style="margin-top: 2px;">회원가입</button></a> 
+			</div>
+			<div style="margin-top: 2px;">
+				<button id="findid" type="button" class="btn" onclick="location='user/userfindid'" style="margin-top: 2px;">아이디 찾기</button>
+			</div>
+			<div>
+				<button id="findpass" type="button" class="btn" onclick="location='user/userfindid'" style="margin-top: 2px;">비밀번호 찾기</button>
+			</div>
+		
 	</div>
 </div>
 
-	<div class="w-100 bg-black py-3" style = "margin-top: 20%;">
+	<div class="w-100 bg-black py-3" style = "margin-top:15%;">
     	<div class="container">
   	      <div class="row pt-2">
              <div class="col-12">

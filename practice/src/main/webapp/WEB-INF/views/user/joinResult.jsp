@@ -20,75 +20,61 @@
     <link rel="stylesheet" href="/resources/base/assets/css/fontawesome.min.css">
 <style>
 
-	#wrap{
-     text-align: center;
-     position: relative;
-	}
-
-	#joinForm{
+	.base{
 	 	width: 100%;
      	height: 100%;
      	text-align: center;
 	}
-
+	
+	.btn{
+		border-top-left-radius: 5px; 
+		border-bottom-left-radius: 5px;
+		border-top-right-radius: 5px; 
+		border-bottom-right-radius: 5px;
+		border: 1px solid skyblue; 
+		background-color: rgba(0,0,0,0); 
+		color: black; 
+		padding: 5px;
+		width:10%;
+		height:10%;
+	}
+	.btn:hover{
+		color:white; 
+		background-color: skyblue;
+	}
+	
+	#wrap{
+     text-align: center;
+     position: relative;
+	}
+	
 	#space{
 		text-align : center;
-		width : 10%;
-		heigh : 10%;
+		width : 5%;
+		heigh : 5%;
 	}
+	
 </style>
-
 <script>
-
-// 이메일을 입력하지 않거나 형식이 잘못된 경우 false를 리턴한다
-function emailCheck() {
-	var email = $("#email").val();
-	var pattern =  /^[A-Za-z][A-Za-z0-9]+@[A-Za-z\.]+$/;
-	if(email==="") {
-		$("#email_msg").text("필수입력입니다").attr("class", "fail");
-		return false;
-	} 
-	if(pattern.test(email)==false) { 
-		$("#email_msg").text("잘못된 이메일형식입니다").attr("class", "fail");
-		return false;
-	}
-	return true;	
-}
-
-function passwordCheck() {
-	$("#password_msg").text("");
-	var password = $("#password").val();
-	// 영숫자, 특수문자 !, @, 8~10자
-	var pattern = /^[A-Za-z0-9!@#$%^&*()_+]{8,10}$/;
-	if(password==="") {
-		$("#password_msg").text("필수입력입니다").attr("class", "fail");
-		return false;
-	}
-	if(pattern.test(password)===false) {
-		$("#password_msg").text("8~10자 영문 대 소문자, 숫자, 특수문자를 사용하세요").attr("class", "fail");
-		return false;
-	}
-	return true;
-}
-
-//비밀번호 확인을 입력하지 않았거나 비밀번호가 일치하지 않으면 false를 리턴하는 함수
-function password2Check() {
-	$("#password2_msg").text("");
-	var password = $("#password").val();
-	var password2 = $("#password2").val();
-	if(password2==="") {
-		$("#password2_msg").text("필수 입력입니다").attr("class", "fail");
-		return false;
-	}
-	if(password!==password2) {
-		$("#password2_msg").text("비밀번호가 일치하지 않습니다").attr("class", "fail");
-		return false;
-	}
-	return true;
-}
+	$(document).ready(function(){
+		$("#userbtn1").click(function(){
+			var id = $("#id").val();
+			var password = $("#password").val();
+			if(id==""){
+				alert("아이디를 입력하세요.");
+				$("#id").focus();
+				return;
+			}
+			if(password==""){
+				alert("비밀번호를 입력하세요.");
+				$("#password").focus();
+				return;
+			}
+			$("#form").submit();
+		});	
+	});
 
 </script>
-
 </head>
 <body id="wrap">
     <!-- Header -->
@@ -144,51 +130,17 @@ function password2Check() {
     </nav>
     <!-- Close Header -->
     
+<div class="base">
 	<div>
-		<form id="joinForm" action="/user/join" method="post" enctype="multipart/form-data">
-			<div>
-				<div class="form-group"  style = "margin-top: 15%;">
-					<label for="email" id="space">아이디</label>
-					<span id="email_msg"></span>
-					<input type="text" id="email" name="email"value='메일형식입니다'  onfocus="this.value='';this.style.color='black';">
-				</div>
-			</div>
-			<div>
-				<div class="form-group" style = "margin-top: 1%;">
-					<label for="password" id="space">비밀번호</label>
-					<span id="password_msg"></span>
-					<input id="password" type="password" name="password">
-				</div>
-			</div>
-			<div>
-				<div class="form-group" style = "margin-top: 1%;">
-					<label for="password2" id="space">비밀번호 확인</label>
-					<span id="password2_msg"></span>
-					<input id="password2" type="password">
-				</div>	
-			</div>
-			<div>
-				<div class="form-group" style = "margin-top: 1%;">
-					<label for="irum" id="space">이름</label>
-					<span id="irum_msg"></span>
-					<input type="text" id="irum" name="irum" onfocus="this.value='';this.style.color='black';">
-				</div>
-			</div>
-
-			<div>
-				<div class="form-group" style = "margin-top: 1%;">
-					<label for="phone" id="space">젼화번호</label>
-					<span id="phone_msg"></span>
-					<input type="text" id="phone" name="phone"value='- 빼고 입력해 주세요'  onfocus="this.value='';this.style.color='black';">
-				</div>
-			</div>
-
-			<div class="form-group" style="text-align: center;">
-				<button type="button" id="join" class="btn btn-info" style="margin-top: 5%;">가입</button>&nbsp;&nbsp;&nbsp;&nbsp;
-			</div>
-		</form>
+		<div style="margin-top: 17%;">
+			<H2>가입이 완료 되었습니다</H2>
+		</div>
+		<div style="margin-top: 20px;">
+			<button id="findid" type="button" class="btn" onclick="location='/'" style="margin-top: 2px;">홈으로</button>
+			<button id="findpass" type="button" class="btn" onclick="location='login'" style="margin-top: 2px;">로그인 하기</button>
+		</div>
 	</div>
-
+</div>
 
 	<div class="w-100 bg-black py-3" style = "margin-top: 20%;">
     	<div class="container">

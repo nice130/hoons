@@ -12,22 +12,22 @@ public class UserServiceImpl {
 	UserVo vo;
 	List<UserVo> list = new ArrayList<UserVo>();
 	
-	@Resource
-	private UserDao userdao;
+//	@Resource
+//	private UserDao userdao;
 	
 	//회원가입
-	@Override
-	public void userJoin(UserVo vo) throws Exception{
-		String uname = vo.getUname();
-		String email = vo.getEmail();
-		String phone = vo.getPhone();
-		String pass = vo.getPass();
-		
-		vo.setEmail(email);
-		vo.setPass(pass);
-		vo.setPhone(phone);
-		vo.setUname(uname);
-		userdao.userJoin(vo);
-	}
+//	@Override
+//	public void userJoin(UserVo vo) throws Exception{
+//		String uname = vo.getUname();
+//		String email = vo.getEmail();
+//		String phone = vo.getPhone();
+//		String pass = vo.getPass();
+//		
+//		vo.setEmail(email);
+//		vo.setPass(pass);
+//		vo.setPhone(phone);
+//		vo.setUname(uname);
+//		userdao.userJoin(vo);
+//	}
 	
 }

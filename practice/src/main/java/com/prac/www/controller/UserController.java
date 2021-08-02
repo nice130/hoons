@@ -9,9 +9,9 @@ import com.prac.www.service.UserService;
 @Controller
 public class UserController {
 	
-	@Autowired
-	private UserService userservice;
+//	@Autowired
+//	private UserService userservice;
 	
-	@PostMapping
+//	@PostMapping
 	
 }
